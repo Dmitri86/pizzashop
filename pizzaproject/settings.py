@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,8 @@ SECRET_KEY = 'sg8c^17@ila)^#-&i7$a7n4dqkozu(e5sg-i#964(noh2%nari'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['blooming-brook-72867.herokuapp.com/', 'https://blooming-brook-72867.herokuapp.com/',
+                 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -125,3 +127,8 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL ='/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
