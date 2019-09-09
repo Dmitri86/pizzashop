@@ -1,0 +1,16 @@
+{% extends 'base_signup.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Войти{% endblock %}
+
+{% block heading %}Пиццерия - страница входа!{% endblock %}
+
+{% block page %}
+<form method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button class="btn btn-red float-right" type="submit">Ввойти</button>
+
+</form>
+<a href="{% url 'pizzashop_sign_up' %}">Зарегистрировать Пиццерию</a>
+{% endblock %}
